@@ -10,5 +10,19 @@ namespace BinarySearchTree
     /// </summary>
     class Node
     {
-    }
+        private int value;
+        public int value
+        {
+            get { }
+        }
+        public Node left;
+        public Node right;
+        public string postion;
+        public void showValue()
+        {
+            Console.WriteLine($"| Node: {value} |");
+        }
+
+        
+    }  
 }
