@@ -11,10 +11,10 @@ namespace BinarySearchTree
     class Node
     {
         // Node Data
-        private int _value;
+        private int _data;
         public int Data
         {
-            get { return _value; }
+            get { return _data; }
         }
 
         private string _position;
@@ -42,13 +42,13 @@ namespace BinarySearchTree
 
         public Node(int value)
         {
-            this._value = value;
+            this._data = value;
         }
 
         public void Add(int value)
         {
             // if _value is greaterEquals than add right node
-            if (_value >= Data)
+            if (_data >= Data)
             {   // if root node is null
                 if (_rightNode == null)
                 {   //create one
@@ -76,19 +76,21 @@ namespace BinarySearchTree
         public Node traverse(int data)
         {
             Node currentNode = this;
+            currentNode._data = data;
 
             while (currentNode != null)
             {
-                if (_value > currentNode._value)
+                if (_data > currentNode._data)
                 {
                     currentNode = currentNode._rightNode;
                     return currentNode;
                 }
-                else if (_value < currentNode._value)
+                else if (_data < currentNode._data)
                 {
                     currentNode = currentNode._leftNode;
                     return currentNode;
                 }
+                
                
             }
             

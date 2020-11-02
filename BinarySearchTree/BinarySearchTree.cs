@@ -23,12 +23,15 @@ namespace BinarySearchTree
             get { return _root; }
         }
 
-        public BinarySearchTree(int seed)
+        public BinarySearchTree()
+        {
+            
+        }
+
+        public void PlantRoot(int seed)
         {
             _root = new Node(seed);
         }
-
-        
 
         public void Add(int data)
         {
@@ -43,15 +46,18 @@ namespace BinarySearchTree
 
         }
        
-        public Node Search(int data)
+        public int Search(int data)
         {
+            Node returnNode;
+
             if (Root != null)
             {
-                return Root.traverse(data);
+                returnNode = Root.traverse(data);
+                return returnNode.Data;
             }
             else
             {
-                return null;
+                return 0;
             }
         }
 

@@ -19,6 +19,7 @@ namespace BinarySearchTree
             genRandom rand = new genRandom();
 
             bst.PlantRoot(50);
+
             Console.WriteLine($"The Root is: {bst.Root.Data}");
 
             for (int i = 0; i < 100; i++)
@@ -26,12 +27,12 @@ namespace BinarySearchTree
                 bst.Add(rand.RandomInt(10, 100));
             }
 
-            var node = bst.Search(10);
-            Console.WriteLine($"Node: {node.Data}");
-            Console.WriteLine($"Node: {bst.Search(12)}");
+            int cw = bst.Search(12);
+            Console.WriteLine($"Node: {cw}");
             Console.WriteLine($"Node: {bst.Search(13)}");
             Console.WriteLine($"Node: {bst.Search(87)}");
             Console.WriteLine($"Node: {bst.Search(35)}");
+            Console.WriteLine("END");
             Console.ReadLine();
         }
     }
