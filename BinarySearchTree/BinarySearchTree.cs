@@ -10,38 +10,50 @@ namespace BinarySearchTree
     /// </summary>
     class BinarySearchTree
     {
-        
-        public Node Add(Node root, int v)
+        /// log base 2 of the number of nodes = number of steps to find that node
+        /// Ex: log n = steps // log base 2 of 16 nodes = 4 levels or steps
+        ///
+        ///
+        ///
+        ///
+
+        private Node _root;
+        public Node Root
         {
-            if (root == null)
+            get { return _root; }
+        }
+
+        public BinarySearchTree(int seed)
+        {
+            _root = new Node(seed);
+        }
+
+        
+
+        public void Add(int data)
+        {
+            if (_root != null)
             {
-                root = new Node();
-                root.value = v;
-                root.postion = "null";
-            }
-            else if (v < root.value)
-            {
-                root.left = Add(root.left, v);
-                
+                _root.Add(data);
             }
             else
             {
-                root.right = Add(root.right, v);
-
+                _root = new Node(data);
             }
 
-            return root;
         }
-
-        public void Search(Node root, int v)
+       
+        public Node Search(int data)
         {
-            if (root == null)
+            if (Root != null)
             {
-                return;
+                return Root.traverse(data);
             }
-
-            Search(root.left, v);
-            Search(root.right, v);
+            else
+            {
+                return null;
+            }
         }
+
     }
 }

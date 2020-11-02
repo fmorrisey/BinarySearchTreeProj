@@ -10,19 +10,93 @@ namespace BinarySearchTree
     /// </summary>
     class Node
     {
-        private int value;
-        public int value
+        // Node Data
+        private int _value;
+        public int Data
         {
-            get { }
-        }
-        public Node left;
-        public Node right;
-        public string postion;
-        public void showValue()
-        {
-            Console.WriteLine($"| Node: {value} |");
+            get { return _value; }
         }
 
-        
-    }  
+        private string _position;
+        public string Position
+        {
+            get { return _position; }
+        }
+
+        // Left Node
+        private Node _leftNode;
+        public Node LeftNode
+        {
+            get { return _leftNode; }
+            set { _leftNode = value; _position = "left"; }
+        }
+
+        // Right Node
+        private Node _rightNode;
+        public Node RigthNode
+        {
+            get { return _rightNode; }
+            set { _rightNode = value; _position = "right"; }
+        }
+
+
+        public Node(int value)
+        {
+            this._value = value;
+        }
+
+        public void Add(int value)
+        {
+            // if _value is greaterEquals than add right node
+            if (_value >= Data)
+            {   // if root node is null
+                if (_rightNode == null)
+                {   //create one
+                    _rightNode = new Node(value);
+                }
+                else
+                {   //if not, recursive call and create
+                    _rightNode.Add(value);
+                }
+            }
+            else
+            {
+                if (_leftNode == null)
+                {   //create one
+                    _leftNode = new Node(value);
+                }
+                else
+                {   //if not, recursive call and create
+                    _leftNode.Add(value);
+                    
+                }
+            }
+        }
+
+        public Node traverse(int data)
+        {
+            Node currentNode = this;
+
+            while (currentNode != null)
+            {
+                if (_value > currentNode._value)
+                {
+                    currentNode = currentNode._rightNode;
+                    return currentNode;
+                }
+                else if (_value < currentNode._value)
+                {
+                    currentNode = currentNode._leftNode;
+                    return currentNode;
+                }
+               
+            }
+            
+            return null;
+        }
+
+
+
+
+    }
 }
