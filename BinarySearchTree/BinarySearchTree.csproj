@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BigNumberTestLoops.cs" />
     <Compile Include="BinarySearchTree.cs" />
     <Compile Include="genRandom.cs" />
     <Compile Include="Node.cs" />

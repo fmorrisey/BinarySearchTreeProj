@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BinarySearchTree
 {   /// <summary>
@@ -25,7 +21,7 @@ namespace BinarySearchTree
 
         public BinarySearchTree()
         {
-            
+
         }
 
         public void PlantRoot(int seed)
@@ -45,21 +41,26 @@ namespace BinarySearchTree
             }
 
         }
-       
-        public int Search(int data)
-        {
-            Node returnNode;
 
+        //O(Log n)
+        public Node Search(int data)
+        {
             if (Root != null)
             {
-                returnNode = Root.traverse(data);
-                return returnNode.Data;
+                return Root.traverse(data);
             }
             else
             {
-                return 0;
+                Console.WriteLine($"Root = {Root.Data}");
+                Root.Data = 50;
+                return Root;
             }
         }
 
+
+
     }
+
+
 }
+

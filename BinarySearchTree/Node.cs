@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BinarySearchTree
 {   /// <summary>
-    /// 
+    /// Node objects used in the creation of the 
     /// </summary>
     class Node
     {
@@ -15,6 +15,7 @@ namespace BinarySearchTree
         public int Data
         {
             get { return _data; }
+            set { _data = value; }
         }
 
         private string _position;
@@ -73,27 +74,48 @@ namespace BinarySearchTree
             }
         }
 
-        public Node traverse(int data)
+        public Node traverse(int searchData)
         {
-            Node currentNode = this;
-            currentNode._data = data;
-
-            while (currentNode != null)
+            //value passed in matches nodes data return the node
+            if (searchData == _data)
             {
-                if (_data > currentNode._data)
-                {
-                    currentNode = currentNode._rightNode;
-                    return currentNode;
-                }
-                else if (_data < currentNode._data)
-                {
-                    currentNode = currentNode._leftNode;
-                    return currentNode;
-                }
-                
-               
+                return this;
             }
-            
+            else if (searchData < _data && _leftNode != null)
+            {
+                return _leftNode.traverse(searchData);
+            }
+            else if (_rightNode != null)
+            {
+                return _rightNode.traverse(searchData);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public Node traverseV1(int searchData)
+        {
+            Node searchNode = new Node(searchData);
+            searchNode._data = searchData;
+
+            while (searchNode != null)
+            {
+                if (_data > searchNode._data)
+                {
+                    searchNode = searchNode._rightNode;
+                    return searchNode;
+                }
+                else if (_data < searchNode._data)
+                {
+                    searchNode = searchNode._leftNode;
+                    return searchNode;
+                }
+
+
+            }
+
             return null;
         }
 

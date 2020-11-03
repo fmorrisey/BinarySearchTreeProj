@@ -9,29 +9,16 @@ namespace BinarySearchTree
     class Program
     {   /// <summary>
         ///  Binary Search Tree
-        /// 
         /// </summary>
         /// <param name="args"></param>
+        /// Example: https://github.com/kc70x/BinaryTreeExample
         static void Main(string[] args)
         {
-            
-            BinarySearchTree bst = new BinarySearchTree();
-            genRandom rand = new genRandom();
 
-            bst.PlantRoot(50);
+            BigNumberTestLoops bntlp = new BigNumberTestLoops();
+            bntlp.Tstleep();
 
-            Console.WriteLine($"The Root is: {bst.Root.Data}");
 
-            for (int i = 0; i < 100; i++)
-            {
-                bst.Add(rand.RandomInt(10, 100));
-            }
-
-            int cw = bst.Search(12);
-            Console.WriteLine($"Node: {cw}");
-            Console.WriteLine($"Node: {bst.Search(13)}");
-            Console.WriteLine($"Node: {bst.Search(87)}");
-            Console.WriteLine($"Node: {bst.Search(35)}");
             Console.WriteLine("END");
             Console.ReadLine();
         }
