@@ -19,17 +19,13 @@ namespace BinarySearchTree
             get { return _root; }
         }
 
-        public BinarySearchTree()
-        {
-
-        }
-
-        public void PlantRoot(int seed)
+        public void PlantRoot(Int64 seed)
         {
             _root = new Node(seed);
+            Console.WriteLine($"The Root is: {seed}");
         }
 
-        public void Add(int data)
+        public void Add(long data)
         {
             if (_root != null)
             {
@@ -38,12 +34,13 @@ namespace BinarySearchTree
             else
             {
                 _root = new Node(data);
+                _root.Path = "<ROOT>";
             }
 
         }
 
         //O(Log n)
-        public Node Search(int data)
+        public Node Search(Int64 data)
         {
             if (Root != null)
             {

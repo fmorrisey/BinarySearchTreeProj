@@ -15,11 +15,10 @@ namespace BinarySearchTree
         static void Main(string[] args)
         {
 
-            BigNumberTestLoops bntlp = new BigNumberTestLoops();
-            bntlp.Tstleep();
+            ThreadsBigLoops threadTester = new ThreadsBigLoops();
 
+            threadTester.ThreadManager();
 
-            Console.WriteLine("END");
             Console.ReadLine();
         }
     }
